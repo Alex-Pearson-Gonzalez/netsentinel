@@ -16,7 +16,6 @@ Revisit when: the signal that would reopen it.
 
 ## Due soon
 
-- ADR-001: AI chat assistant changes (decided before the plan review; write it now)
 - ADR-010: time-series schema (Week 5)
 - ADR-011: HTTP client, retries and rate limiting for source adapters (Week 6)
 - ADR-012: watchlist selection rule (Week 7)
@@ -84,3 +83,11 @@ Options: (a) keep the original order; (b) end Phase 1 with a small end-to-end v0
 Decision: (b). v0.1 by 20 Dec 2026 on the core watchlist, with a short write-up. Scale-up moves after Phase 7 (the agent).
 Consequences: Easier: a presentable project by December, and the AI parts (the main learning goal) come sooner. Harder: streaming and message-queue skills (RIS Live, Kafka or Redis Streams) come later.
 Revisit when: an internship I'm targeting clearly asks for streaming experience before Phase 7 is reached.
+
+## ADR-001: Make the assistant a full AI chat assistant
+Date: 2026-10-06 · Status: accepted
+Context: The original plan described the assistant (building block B) as "question in, answer out". Each question was handled on its own, with no memory of earlier messages. That works, but it feels like a search box, not a conversation.
+Options: (a) single question-and-answer, no memory; (b) a full chat assistant with conversation features.
+Decision: (b). Five chat features: (1) conversation memory, so earlier messages in the same chat count ("And did it affect BT?" works); (2) follow-up suggestions, 1–3 next questions after each answer; (3) sources shown, so every answer says whether it came from the database, a document or an incident report; (4) clarifying questions when a question is ambiguous (e.g. "Telefónica" could mean several networks); (5) answers in ES, EN, CA or DE. Phase 6 adds features 1–4 to the Streamlit chat. Phase 7 lets the chat hand hard questions to the agent ("Investigate this for me"). Phase 8 adds feature 5 and saved chats per user account.
+Consequences: Easier: more useful, feels like a real product, stronger CV line. Harder: more work in Phase 6 (managing chat history and the context window, the maximum text an LLM can read at once), e.g. summarising older messages in long chats. The eval set needs a few multi-turn test conversations (several back-and-forth messages) on top of the 50 single questions.
+Revisit when: evals show that chat history makes answers less accurate, or LLM cost per conversation gets too high.
