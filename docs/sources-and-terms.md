@@ -23,3 +23,10 @@ Every external source, what we use it for, and whether it may back paid features
 
 - RIS: RIPE NCC logo, a link to RIS and the credit text from the RIS commercial-use page.
 - RouteViews: credit the University of Oregon Route Views Project and cite DOI 10.7264/1y7v-2d90.
+
+## Permission requests
+
+| Date sent  | Provider   | Sent to             | About                                  | Status            |
+|------------|------------|---------------------|----------------------------------------|-------------------|
+| 2026-10-10 | RIPE NCC   | stat@ripe.net       | Commercial use of RIPEstat and RIS     | Waiting for reply |
+| 2026-10-10 | RouteViews | help@routeviews.org | Commercial use and attribution         | Waiting for reply |
