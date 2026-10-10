@@ -1,30 +1,23 @@
 # Progress: NetSentinel
-
-Updated: 2026-10-06 · Phase: 0 (foundations) · Week: 0 (setup)
-
-## Current milestone
-
-v0.1 demo by 20 Dec 2026: ingest for about 30 verified networks, a z-score alert that fires on at least one known past incident, one LLM-written incident note, a README and one post.
+Updated: 2026-10-10 · Phase: 0 · Week: 0 (setup)
 
 ## Done this week
-
-- Plan review finished (6 Oct 2026).
+- Plan review: accepted all ten changes
+- GitHub repo set up at C:\Users\alexp\dev\netsentinel, with the starter kit; Claude Code ready
+- Permission emails sent to RIPE NCC and RouteViews, logged in sources-and-terms.md
+- Project instructions updated
 
 ## Next three tasks
-
-1. Create the GitHub repo outside OneDrive, add this starter kit, make the first commit and push.
-2. Email RIPE NCC (three commercial-use questions) and RouteViews (how I'll use and credit their data); log both in docs/sources-and-terms.md.
-3. Week 1: venv, pyproject.toml, ruff, pytest, Postgres in Docker Compose and a CI workflow.
+1. W1: Python 3.12 venv, pyproject.toml, ruff, pytest, Postgres in Docker Compose
+2. W1: GitHub Actions CI (ruff + pytest on every push)
+3. W1: load telecom-pipeline tables into pandas and answer five questions
 
 ## Blockers and waiting on
-
-- RIPE NCC reply (not sent yet)
-- RouteViews reply (not sent yet)
+- RIPE NCC reply (sent 2026-10-10)
+- RouteViews reply (sent 2026-10-10)
 
 ## Open questions
-
-- Which of the review's proposed plan changes do I accept? (checklist at the top of docs/plan.md)
+- 
 
 ## Numbers
-
 - Networks verified: 0/30 · Days of history: 0 · Tests passing: 0
