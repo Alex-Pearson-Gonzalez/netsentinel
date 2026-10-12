@@ -20,6 +20,7 @@ Revisit when: the signal that would reopen it.
 - ADR-011: HTTP client, retries and rate limiting for source adapters (Week 6)
 - ADR-012: watchlist selection rule (Week 7)
 
+
 ## ADR-009: Agent safety rules
 Date: 2026-10-08 · Status: accepted
 Context: The agent (Phase 7) reads text from internet registries, such as network and company descriptions. Anyone can write that text, including text designed to trick an AI into doing something (prompt injection). The agent also writes incident reports, and a wrong public report that blames a real company could cause real problems.
@@ -34,7 +35,7 @@ Context: Not all data sources allow commercial use. RIPEstat's terms forbid paid
 Options: (a) use any source for anything and ask later; (b) use only clearly licensed sources for paid features and keep the rest for free or non-commercial parts.
 Decision: (b). Paid features use only RIS raw data, RIS Live and RouteViews, crediting RIPE NCC / RIS and acknowledging RouteViews as they ask. RIPEstat, Cloudflare Radar, CAIDA and PeeringDB stay in free or non-commercial parts until I get written permission.
 Consequences: Easier: no risk of selling data I'm not allowed to sell. Harder: every stored data point must record its source so paid features can filter by it, so the adapter layer must add this from the start.
-Revisit when: a provider gives written permission or changes its terms.
+Revisit when: Update 2026-10-12: RouteViews confirmed its terms by email. Commercial use is allowed under CC BY 4.0 with their attribution sentence, logo, boilerplate description and a note that NetSentinel processed the data. The licence is revocable. Details in sources-and-terms.md.
 
 ## ADR-007: Track organisations, not single ASNs, and log mergers as known events
 Date: 2026-10-08 · Status: accepted
