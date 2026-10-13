@@ -39,7 +39,7 @@ make no mistakes
 
 ## Environment
 
-- Windows, PowerShell, VS Code. Python 3.12 in `.venv`; activate it before starting Claude Code.
+- Windows, PowerShell, VS Code. Python 3.14 in `.venv`; activate it before starting Claude Code.
 - Always `python -m pip`, `python -m pytest`, `python -m ruff`.
 - PostgreSQL runs in Docker Compose. Airflow 3, pybgpstream and pybgpkit-parser run in Docker or WSL2, never natively on Windows.
 - Secrets live in `.env`: never read, print or commit it. `.env.example` lists the variable names.

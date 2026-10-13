@@ -17,10 +17,9 @@ Updated: 2026-10-13 · Phase: 0 · Week: 1 (environment and pandas)
 
 ## Blockers and waiting on
 - RIPE NCC reply (sent 2026-10-10)
-- RouteViews: replied 2026-10-12 pointing to its published commercial terms; I answered, waiting for their response
 
 ## Open questions
-- Keep requirements.txt, or move dependencies into pyproject.toml? (decide in Session 2)
+- 
 
 ## Numbers
 - Networks verified: 0/30 · Days of history: 0 · Tests passing: 0
