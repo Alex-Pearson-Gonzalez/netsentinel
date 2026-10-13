@@ -2,7 +2,7 @@
 Updated: 2026-10-13 · Phase: 0 · Week: 1 (environment and pandas)
 
 ## Done this week
-- 2026-10-13: Session 1 done. venv on Python 3.14, deps installed (pandas 3.0.6, NumPy 2.5.4, matplotlib 3.11.2). Fixed Windows python.exe alias issue. ADR-011 (venv) and ADR-012 (Python 3.14) logged.
+- 2026-10-13: Session 1 done. venv on Python 3.14, deps installed (pandas 3.0.6, NumPy 2.5.4, matplotlib 3.11.2). Fixed Windows python.exe alias issue. ADR-010 (Python 3.14) and ADR-011 (venv) logged.
 
 ## Done before (week 0, setup)
 - Plan review: accepted all ten changes
