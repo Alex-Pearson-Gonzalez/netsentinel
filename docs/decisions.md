@@ -16,21 +16,25 @@ Revisit when: the signal that would reopen it.
 
 ## Due soon
 
-- ADR-010: time-series schema (Week 5)
-- ADR-011: HTTP client, retries and rate limiting for source adapters (Week 6)
-- ADR-012: watchlist selection rule (Week 7)
+- ADR-012: time-series schema (Week 5)
+- ADR-013: HTTP client, retries and rate limiting for source adapters (Week 6)
+- ADR-014: watchlist selection rule (Week 7)
 
-## ADR-011: Python environment per project (13 Oct 2026)
-Decision: Use a venv in .venv/ and a requirements.txt in the repo root.
-Why: Isolates NetSentinel's packages from other projects; standard and simple, no extra tools.
-Later: Pin exact versions in Phase 1 once the stack is stable (installed today: pandas 3.0.6, NumPy 2.5.4, matplotlib 3.11.2).
+## ADR-011: Python environment per project
+Date: 2026-10-13 · Status: accepted
+Context: NetSentinel needs its own packages, separate from telecom-pipeline and uni work.
+Options: (a) install into the global Python; (b) a venv per project; (c) a tool like Poetry or uv.
+Decision: (b). A venv in .venv/, created with Python's built-in venv module; no extra tools to learn yet.
+Consequences: Easier: no clashes between projects; anyone can rebuild it. Harder: it must be activated in every new terminal (VS Code does this automatically).
+Revisit when: dependency management gets painful (then try uv).
 
-## ADR-010: Python 3.14 as the project version (13 Oct 2026)
-Decision: Use Python 3.14 for the venv, Docker images and CI (Continuous Integration).
-Why: Already installed; still gets bug fixes (3.12 is security-only); supported until Oct 2030;
-     the main libraries publish 3.14 wheels (confirmed: pandas cp314 wheel installed). 3.15 is too new (released 9 Oct 2026).
-Consequence: Docker base image must be python:3.14-*. Revisit in late 2027.
-Note: Windows "App Installer" python.exe aliases disabled, because they shadowed the real Python and broke `python -m venv`.
+## ADR-010: Python 3.14 as the project version
+Date: 2026-10-13 · Status: accepted
+Context: The plan assumed 3.12, but 3.14 is installed. The venv, Docker and CI must all use the same version.
+Options: (a) 3.12; (b) 3.14; (c) 3.15.
+Decision: (b). Still gets bug fixes (3.12 is security-only), supported until Oct 2030, and the main libraries ship 3.14 wheels (confirmed: pandas cp314 wheel installed). 3.15 is too new (released 9 Oct 2026).
+Consequences: Docker base image must be python:3.14-*; CI must use 3.14. Windows "App Installer" python.exe aliases disabled, because they shadowed the real Python and broke `python -m venv`.
+Revisit when: late 2027, or a needed library lacks 3.14 wheels.
 
 
 ## ADR-009: Agent safety rules
