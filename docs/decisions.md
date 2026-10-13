@@ -20,6 +20,18 @@ Revisit when: the signal that would reopen it.
 - ADR-011: HTTP client, retries and rate limiting for source adapters (Week 6)
 - ADR-012: watchlist selection rule (Week 7)
 
+## ADR-011: Python environment per project (13 Oct 2026)
+Decision: Use a venv in .venv/ and a requirements.txt in the repo root.
+Why: Isolates NetSentinel's packages from other projects; standard and simple, no extra tools.
+Later: Pin exact versions in Phase 1 once the stack is stable (installed today: pandas 3.0.6, NumPy 2.5.4, matplotlib 3.11.2).
+
+## ADR-010: Python 3.14 as the project version (13 Oct 2026)
+Decision: Use Python 3.14 for the venv, Docker images and CI (Continuous Integration).
+Why: Already installed; still gets bug fixes (3.12 is security-only); supported until Oct 2030;
+     the main libraries publish 3.14 wheels (confirmed: pandas cp314 wheel installed). 3.15 is too new (released 9 Oct 2026).
+Consequence: Docker base image must be python:3.14-*. Revisit in late 2027.
+Note: Windows "App Installer" python.exe aliases disabled, because they shadowed the real Python and broke `python -m venv`.
+
 
 ## ADR-009: Agent safety rules
 Date: 2026-10-08 · Status: accepted
