@@ -19,7 +19,7 @@ Updated: 2026-10-13 · Phase: 0 · Week: 1 (environment and pandas)
 - RIPE NCC reply (sent 2026-10-10)
 
 ## Open questions
-- 
+- Before v0.1 (W10): trim learning comments in src/ and tests/ with Claude Code; keep only "why" comments. Move useful notes to learning-log.md first. 
 
 ## Numbers
 - Networks verified: 0/30 · Days of history: 0 · Tests passing: 0
