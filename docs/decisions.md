@@ -20,6 +20,14 @@ Revisit when: the signal that would reopen it.
 - ADR-013: HTTP client, retries and rate limiting for source adapters (Week 6)
 - ADR-014: watchlist selection rule (Week 7)
 
+## ADR-015: PostgreSQL 17 in Docker, on host port 5433
+Date: 2026-10-13 · Status: accepted
+Context: NetSentinel needs a local database that matches the planned Amazon RDS setup and can run next to telecom-pipeline's database.
+Options: (a) PostgreSQL 17; (b) PostgreSQL 18; (c) a native Windows install.
+Decision: (a), in Docker Compose on host port 5433. Long support, available on RDS, and a well-known data path. Docker keeps it the same on every machine.
+Consequences: Easier: same setup locally and in the cloud, no port clash with telecom-pipeline. Harder: 18's new features are not available; upgrading later needs a dump and restore.
+Revisit when: before the AWS deployment in Phase 8, or if we need a feature only in 18.
+
 ## ADR-011: Python environment per project
 Date: 2026-10-13 · Status: accepted
 Context: NetSentinel needs its own packages, separate from telecom-pipeline and uni work.

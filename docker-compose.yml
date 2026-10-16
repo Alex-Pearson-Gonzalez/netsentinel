@@ -1,0 +1,26 @@
+# Services = the containers this project runs (only the database for now)
+services:
+  # "db" is the service name; commands use it, e.g. "docker compose up -d db"
+  db:
+    # Official PostgreSQL 17 image from Docker Hub
+    image: postgres:17
+    # Settings the image reads on first start; ${...} values come from .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    # "laptop port:container port"; 5433 avoids a clash with telecom-pipeline on 5432
+    ports:
+      - "5433:5432"
+    # Named volume: keeps the data when the container is stopped or recreated
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    # Docker asks Postgres "are you ready?" every 5 s, up to 10 times
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      retries: 10
+
+# Declares the named volume used above (Docker manages where it lives)
+volumes:
+  pgdata:

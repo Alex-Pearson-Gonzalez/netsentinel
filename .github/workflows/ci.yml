@@ -1,0 +1,38 @@
+# Name shown in GitHub's Actions tab
+name: CI
+
+# When to run: on every push to any branch, and on every pull request
+on:
+  push:
+  pull_request:
+
+jobs:
+  # One job called "check"; a job = a list of steps on one fresh machine
+  check:
+    # A fresh Ubuntu Linux machine, provided free by GitHub
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Download the repo's code onto the machine
+      - uses: actions/checkout@v5
+
+      # 2. Install Python 3.14, same as the laptop (ADR-010)
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+
+      # 3. Install the package and the dev tools, same command as the laptop
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+
+      # 4. Linter: fail if ruff finds problems
+      - name: Lint
+        run: python -m ruff check .
+
+      # 5. Formatter in check mode: fail if any file is not formatted (changes nothing)
+      - name: Format check
+        run: python -m ruff format --check .
+
+      # 6. Unit tests (integration tests are skipped by pyproject.toml; no database here)
+      - name: Test
+        run: python -m pytest

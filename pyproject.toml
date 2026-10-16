@@ -1,0 +1,43 @@
+# How to build the package (setuptools is Python's standard build tool)
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+# Project metadata and runtime dependencies
+[project]
+name = "netsentinel"
+version = "0.0.1"
+requires-python = ">=3.14"
+dependencies = [
+    "pandas>=3.0",
+    "numpy>=2.5",
+    "matplotlib>=3.11",
+]
+
+# Extra tools only needed while developing: install them with .[dev]
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.1",
+    "ruff==0.17.1",
+    "ipykernel",
+]
+
+# Code lives in src/, not the repo root ("src layout")
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# ruff: linter (finds bugs and bad style) and formatter
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.lint]
+# E/F = basic errors, I = import order, B = common bugs, UP = modern Python syntax
+select = ["E", "F", "I", "B", "UP"]
+
+# pytest: the test runner
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: needs the Docker Postgres database"]
+# Skip integration tests by default; run them with: python -m pytest -m integration
+addopts = "-m 'not integration'"
