@@ -30,11 +30,11 @@ If I haven't said which level I want for a task, ask.
 - I know Java OOP well but only basic Python. When you explain Python, compare it to Java when that helps (classes, constructors, types, collections).
 - When code uses a Python feature I may not know (list comprehensions, dictionaries, f-strings, decorators, context managers "with", type hints, virtual environments), explain it in one or two plain sentences the first time it appears.
 - Prefer clear, simple Python over clever one-liners. Name variables clearly.
-- Add short comments explaining what each block of code does and why.
-- Before giving me a full solution, tell me the steps first and let me try writing the code myself when the task is a learning task. Then check my code and explain mistakes instead of silently fixing them.
+- Comment every new piece of Python code line by line or block by block, so I can take notes: what it does, why, and the Java equivalent when there is one. These comments get trimmed before v0.1.- Before giving me a full solution, tell me the steps first and let me try writing the code myself when the task is a learning task. Then check my code and explain mistakes instead of silently fixing them.
 - When a new library appears (pandas, NumPy, scikit-learn, SQLAlchemy, FastAPI...), tell me in one sentence what it is for before using it.
 - Point out Python-specific mistakes Java programmers often make (indentation, forgetting self, mutable default arguments, == vs is).
 - I use Windows, VS Code and PowerShell, and I install packages with "python -m pip".
+
 make no mistakes
 
 ## Environment

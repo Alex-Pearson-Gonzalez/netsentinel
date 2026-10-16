@@ -12,6 +12,15 @@ Newest first. One entry per concept or session, in my own words. `/teach` and `/
 - Still open:
 - Resources:
 ```
+## 2026-10-17 · CI with GitHub Actions and pull requests
+- In my own words: CI in GitHub starts a fresh mahcine, installs the project and runs ruff and pytest on every push to github to check if there is any mistakes, if they are it fails, it uses a fresh machine because it can catch problems that I'm not able to detect locally, like a package installed on my laptop but missing from pyproject.toml.
+- Example I worked through: creating the ci.yml file, which github will use for running ruff on my repo, so that it fails if it detects somehting wrong. I also worked on the PR for the branch where I set up all the tools and environment and the docker database service, like in a real work environment. 
+- What I got wrong or found confusing: 
+    ·That ruff format --check akss if formating would change any file (which shouldnt be done in the CI) 
+    ·A missng dependency breaks CI because it needs something that is not marked as a dependency (Add it to dependencies in pyproject.toml (or dev if only I need it).)
+- Still open: How do I stop anyone (including me) merging into main when CI is red?
+- Resources: https://docs.github.com/en/actions
+
 ## 2026-10-16 · pyproject.toml, pytest, ruff and Docker Compose
 - In my own words: created a package where all the python files are, run and installed pytest by checking which version netsentinel is, ruff check is for finding likely bugs or mistakes before running the code and ruff format for fixing things like spacex, quotes... and created a docker compose service for the database we'll be using. 
 - Example I worked through: installed pytest (the test runner) and wrote a smoke test that checks the package version.
