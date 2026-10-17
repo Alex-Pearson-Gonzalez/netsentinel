@@ -1,0 +1,25 @@
+# Dependabot opens pull requests when a dependency has a newer version.
+# Docs: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
+version: 2
+
+updates:
+  # Python packages listed in pyproject.toml
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # One pull request for all minor and patch updates, so there is less noise.
+    # Major updates stay separate, because they are more likely to break something.
+    groups:
+      python-minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # The actions used in .github/workflows/ci.yml (checkout, setup-python)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
