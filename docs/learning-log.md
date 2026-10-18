@@ -12,6 +12,13 @@ Newest first. One entry per concept or session, in my own words. `/teach` and `/
 - Still open:
 - Resources:
 ```
+## 2026-10-18 · pandas basics on real data
+- In my own words: pandas is a python library that is really useful for working with data, since it loads up the data from a db, csv file... into a dataframe, which is a type of data structure that lets you modify, update, analyze... the structured data in the dataframe. You work on whole columns at once instead of writing loops, and groupby works like SQL’s GROUP BY: split into groups, then summarise each one.
+- Example I worked through: telecom-pipeline's network_snapshots (39 rows, 3 ASNs) → runs with dt.floor("min"), summaries with groupby + agg, change between runs with groupby + diff
+- What I got wrong or found confusing: connected to host "db" (only works inside Docker; from Windows it's localhost:5433); used NetSentinel's DB user; the kernel kept the old .env value; read datetime64[us] as "US" (it means microseconds); wrote .df inside a chain; sorted the wrong table (latest instead of df)
+- Still open: rounding to the minute merged two runs → a gap-based rule is more robust, with the threshold chosen from the data
+- Resources: https://pandas.pydata.org/docs/user_guide/groupby.html
+
 ## 2026-10-17 · CI with GitHub Actions and pull requests
 - In my own words: CI in GitHub starts a fresh mahcine, installs the project and runs ruff and pytest on every push to github to check if there is any mistakes, if they are it fails, it uses a fresh machine because it can catch problems that I'm not able to detect locally, like a package installed on my laptop but missing from pyproject.toml.
 - Example I worked through: creating the ci.yml file, which github will use for running ruff on my repo, so that it fails if it detects somehting wrong. I also worked on the PR for the branch where I set up all the tools and environment and the docker database service, like in a real work environment. 
