@@ -12,6 +12,9 @@ dependencies = [
     "pandas>=3.0",
     "numpy>=2.5",
     "matplotlib>=3.11",
+    "sqlalchemy >=2.1",
+    "psycopg[binary] >=3.3",
+    "python-dotenv >=1.2",
 ]
 
 # Extra tools only needed while developing: install them with .[dev]
